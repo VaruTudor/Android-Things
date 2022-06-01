@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <title>Plusivo</title>
+  </head>
+
+  <body>
+    <h2>Hello from Plusivo!</h2>
+    <table style='font-size:20px'>
+      <tr>
+        <td>
+          <div>Distance:  </div>
+        </td>
+        <td>
+          <div id='Distance'></div>
+        </td>
+       </tr>
+    </table>
+  </body>
+
+  <script>
+   $(document).ready(function(){
+     setInterval(refreshFunction,100);
+   });
+
+   function refreshFunction(){
+     $.getJSON('/refresh', function(result){
+       $('#Distance').html(result);
+     });
+   }
+  </script>
+</html>
